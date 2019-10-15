@@ -70,7 +70,7 @@ def dateMap(days)
         array.inject(0) { |sum, x| sum += x } / array.size.to_f
     end
 
-    def mean_and_standard_deviation(array)
+    def standard_deviation(array)
         meanPrice = mean(array)
         variance = array.inject(0) { |variance, x| variance += (x - meanPrice) ** 2 }
         standardDeviation = Math.sqrt(variance/(array.size-1))
@@ -100,8 +100,14 @@ def dateMap(days)
         when "aboveaverage"
             "The current price of #{coin} is above the #{movingAverage} day moving average.
             This means it is trading above what it has historically traded at. "
+        when "belowaverage"
+            "The current price of #{coin} is below the #{movingAverage} day moving average.
+            This means it is trading below what it has historically traded at. "
         else
             "No additional data. "
         end
+      end
+
+      def tradeRecommendation (dailyPrices = self.dailyPrices, coin, movingAverage, )
       end
 end
