@@ -76,4 +76,32 @@ def dateMap(days)
         standardDeviation = Math.sqrt(variance/(array.size-1))
         return standardDeviation
       end
+
+      def coefficientOfVariation(standardDeviation, mean)
+        return (standardDeviation.to_f / mean.to_f).round(2)
+      end
+
+      def Volatile?(coefficientOfVariation, volatilityBenchmark = 0.30)
+        if coefficientOfVariation <= volatilityBenchmark
+            return true
+        else
+            return false
+        end
+      end
+
+      def tradeRecommendationStatements(value, volatility = 0, mean = 0, volatilityBenchmark = 0.30, coin="BTC", movingAverage=200 )
+        case value
+        when "highvolatility"
+            "There is a high volatility of #{volatility} compared to the benchmark of #{volatilityBenchmark}.
+            This implies the price has fluctuated a lot in the past week - be cautious for extreme price swings. "
+        when "lowvolatility"
+            "There is a low volatility of #{volatility} compared to the benchmark of #{volatilityBenchmark}.
+            This implies the price has stayed relatively stable, a sign of support! "
+        when "aboveaverage"
+            "The current price of #{coin} is above the #{movingAverage} day moving average.
+            This means it is trading above what it has historically traded at. "
+        else
+            "No additional data. "
+        end
+      end
 end
