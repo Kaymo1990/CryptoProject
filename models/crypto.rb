@@ -4,8 +4,9 @@ require 'openssl'
 require 'json'
 
 class Crypto
+    attr_accessor :dailyPrices
     def initialize
-        @dailyPricesForWeek = []
+        @dailyPrices = []
     end
 
 def coinSearch(currency, coin)
@@ -58,11 +59,21 @@ def dateMap(days)
     end
 
     def movingAverage(days)
-        dailyAveragePrices = []
         mappedDates = self.dateMap(days)
         mappedDates.each do |date|
-            dailyAveragePrices << self.coinPriceByDate(date)
+            self.dailyPrices << self.coinPriceByDate(date)
         end
-        return dailyAveragePrices       
+        return self.dailyPrices       
     end
+
+    def mean(array)
+        array.inject(0) { |sum, x| sum += x } / array.size.to_f
+    end
+
+    def mean_and_standard_deviation(array)
+        meanPrice = mean(array)
+        variance = array.inject(0) { |variance, x| variance += (x - meanPrice) ** 2 }
+        standardDeviation = Math.sqrt(variance/(array.size-1))
+        return standardDeviation
+      end
 end
