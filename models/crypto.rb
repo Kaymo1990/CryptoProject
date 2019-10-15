@@ -56,4 +56,13 @@ def dateMap(days)
 
         return mappedDates
     end
+
+    def movingAverage(days)
+        dailyAveragePrices = []
+        mappedDates = self.dateMap(days)
+        mappedDates.each do |date|
+            dailyAveragePrices << self.coinPriceByDate(date)
+        end
+        return dailyAveragePrices       
+    end
 end
