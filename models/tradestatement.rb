@@ -1,5 +1,5 @@
 class TradeStatement
-    
+
     def tradeRecommendationStatements(value, volatility = 0, mean = 0, volatilityBenchmark = 0.30, coin="BTC", movingAverage=200 )
         case value
         when "highvolatility"
@@ -20,5 +20,7 @@ class TradeStatement
       end
 
       def tradeRecommendation (dailyPrices = self.dailyPrices, coin, movingAverage, )
+        crypto_trader_statement = ""
+        
       end
 end

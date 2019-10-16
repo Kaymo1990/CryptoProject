@@ -9,7 +9,7 @@ class DateMap
             mappedDates << (Time.now - (oneDAY * dayCount)).strftime("%d-%m-%Y")
             dayCount+=1
         end
-        
+
         return mappedDates
     end
 
