@@ -1,10 +1,12 @@
+require_relative 'crypto.rb'
+
 class Calculations
-    def movingAverage(days)
-        mappedDates = self.dateMap(days)
+    def movingAverage(mappedDates, cryptoAPI = Crypto.new)
+        daily_prices = []
         mappedDates.each do |date|
-            self.dailyPrices << self.coinPriceByDate(date)
+            daily_prices << cryptoAPI.coinPriceByDate(date)
         end
-        return self.dailyPrices       
+        return daily_prices       
     end
 
     def mean(array)
