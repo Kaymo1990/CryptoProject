@@ -1,4 +1,3 @@
-require_relative 'crypto.rb'
 require_relative 'datemap.rb'
 require_relative 'calculations.rb'
 
@@ -10,7 +9,6 @@ attr_accessor :daily_prices_historically
 
     def getCryptoPricesFor100days(coin="bitcoin", currency="usd", dateParser = DateMap.new, technicalCalc = Calculations.new)
         mapped_dates = dateParser.dateMap(10)
-        puts mapped_dates
-        technicalCalc.movingAverage(mapped_dates)
+        self.daily_prices_historically = technicalCalc.movingAverage(mapped_dates)
     end
 end

@@ -1,12 +1,13 @@
 require_relative 'crypto.rb'
 
 class Calculations
+
     def movingAverage(mappedDates, cryptoAPI = Crypto.new)
         daily_prices = []
         mappedDates.each do |date|
             daily_prices << cryptoAPI.coinPriceByDate(date)
-        end
-        return daily_prices       
+    end
+         return daily_prices       
     end
 
     def mean(array)
@@ -18,17 +19,18 @@ class Calculations
         variance = array.inject(0) { |variance, x| variance += (x - meanPrice) ** 2 }
         standardDeviation = Math.sqrt(variance/(array.size-1))
         return standardDeviation
-      end
+    end
 
-      def coefficientOfVariation(standardDeviation, mean)
+    def coefficientOfVariation(standardDeviation, mean)
         return (standardDeviation.to_f / mean.to_f).round(2)
-      end
+    end
 
-      def Volatile?(coefficientOfVariation, volatilityBenchmark = 0.30)
+    def Volatile?(coefficientOfVariation, volatilityBenchmark = 0.30)
         if coefficientOfVariation <= volatilityBenchmark
             return true
         else
             return false
         end
-      end
+    end
+    
 end
