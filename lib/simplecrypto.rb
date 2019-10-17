@@ -16,7 +16,7 @@ attr_accessor :daily_prices_historically, :standard_deviation_100d, :mean_100d, 
 
     def getCryptoPricesFor100days(coin: self.coin, currency: "usd", dateParser: DateMap.new, technicalCalc: Calculations.new)
         mapped_dates = dateParser.dateMap(10)
-        self.daily_prices_historically = technicalCalc.movingAverage(mapped_dates)
+        self.daily_prices_historically = technicalCalc.movingAverage(mapped_dates, coin)
         self.mean_100d = technicalCalc.mean(self.daily_prices_historically)
         self.standard_deviation_100d = technicalCalc.standard_deviation(daily_prices_historically)
         self.coefficient_of_variation = technicalCalc.coefficientOfVariation(self.standard_deviation_100d, self.mean_100d)
@@ -25,7 +25,7 @@ attr_accessor :daily_prices_historically, :standard_deviation_100d, :mean_100d, 
     end
 
     def analysisReport(tradeStatementPrinter = TradeStatement.new)
-        tradeStatementPrinter.tradeRecommendation(self.daily_prices_historically, self.standard_deviation_100d, self.mean_100d, self.coefficient_of_variation, self.is_volatile)
+        tradeStatementPrinter.tradeRecommendation(self.daily_prices_historically, self.standard_deviation_100d, self.mean_100d, self.coefficient_of_variation, self.is_volatile, self.coin)
     end
 
 

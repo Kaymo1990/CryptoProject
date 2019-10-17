@@ -21,9 +21,9 @@ class Crypto
         return JSON.parse(response.read_body)
     end
 
-    def coinPriceByDate(date)
+    def coinPriceByDate(coin, date)
 
-        url = URI("https://coingecko.p.rapidapi.com/coins/bitcoin/history?date=#{date}")
+        url = URI("https://coingecko.p.rapidapi.com/coins/#{coin}/history?date=#{date}")
 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
