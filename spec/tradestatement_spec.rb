@@ -24,9 +24,9 @@ describe TradeStatement do
         end
         
         it 'should return a statement indicating trade below the average' do
-            expectedOutput =  "The current price of BTC is above the 100 day moving average.
-            This means it is trading above what it has historically traded at. "
-            input = "aboveaverage"
+            expectedOutput = "The current price of BTC is below the 100 day moving average.
+            This means it is trading below what it has historically traded at. "
+            input = "belowaverage"
             expect(subject.tradeRecommendationStatements(input)).to eq expectedOutput
         end
 
