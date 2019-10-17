@@ -1,6 +1,6 @@
 class TradeStatement
 
-    def tradeRecommendationStatements(value, volatility = 0, mean = 0, volatilityBenchmark = 0.30, coin="BTC", movingAverage=200 )
+    def tradeRecommendationStatements(value, volatility = 0, mean = 0, volatilityBenchmark = 0.03, coin="bitcoin", movingAverage=200 )
         case value
         when "highvolatility"
             "There is a high volatility of #{volatility} compared to the benchmark of #{volatilityBenchmark}.
