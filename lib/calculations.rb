@@ -22,10 +22,10 @@ class Calculations
     end
 
     def coefficientOfVariation(standardDeviation, mean)
-        return (standardDeviation.to_f / mean.to_f).round(2)
+        return (standardDeviation.to_f / mean.to_f).round(3)
     end
 
-    def isVolatile(coefficientOfVariation, volatilityBenchmark = 0.30)
+    def isVolatile(coefficientOfVariation, volatilityBenchmark = 0.03)
         if coefficientOfVariation >= volatilityBenchmark
             return true
         else

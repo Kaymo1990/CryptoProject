@@ -1,6 +1,6 @@
 class TradeStatement
 
-    def tradeRecommendationStatements(value, volatility = 0, mean = 0, volatilityBenchmark = 0.03, coin="bitcoin", movingAverage=200 )
+    def tradeRecommendationStatements(value, volatility = 0, mean = 0, volatilityBenchmark = 0.030, coin="bitcoin", movingAverage=200 )
         case value
         when "highvolatility"
             "There is a high volatility of #{volatility} compared to the benchmark of #{volatilityBenchmark}.
@@ -19,19 +19,19 @@ class TradeStatement
         end
     end
 
-    def tradeRecommendation (dailyPrices, standardDeviation, mean, coefficientOfVariation, isVolatile, coin="bitcoin" )
-        crypto_trader_statement = "The current price of #{coin} is #{dailyPrices[0]}. "
+    def tradeRecommendation (dailyPrices, standardDeviation, mean, coefficientOfVariation, isVolatile, coin="bitcoin", currency="USD" )
+        crypto_trader_statement = "The current price of #{coin} is #{dailyPrices[0].round(2)} #{currency}. "
 
         if dailyPrices[0] >= mean
-            crypto_trader_statement += tradeRecommendationStatements("aboveaverage", coefficientOfVariation, mean, volatilityBenchmark = 0.03, coin)
+            crypto_trader_statement += tradeRecommendationStatements("aboveaverage", coefficientOfVariation, mean, volatilityBenchmark = 0.030, coin)
         else
-            crypto_trader_statement += tradeRecommendationStatements("belowaverage", coefficientOfVariation, mean, volatilityBenchmark = 0.03, coin)
+            crypto_trader_statement += tradeRecommendationStatements("belowaverage", coefficientOfVariation, mean, volatilityBenchmark = 0.030, coin)
         end
 
         if isVolatile == true
-            crypto_trader_statement += tradeRecommendationStatements("highvolatility", coefficientOfVariation, mean, volatilityBenchmark = 0.03, coin)
+            crypto_trader_statement += tradeRecommendationStatements("highvolatility", coefficientOfVariation, mean, volatilityBenchmark = 0.030, coin)
         else
-            crypto_trader_statement += tradeRecommendationStatements("lowvolatility", coefficientOfVariation, mean, volatilityBenchmark = 0.03, coin)
+            crypto_trader_statement += tradeRecommendationStatements("lowvolatility", coefficientOfVariation, mean, volatilityBenchmark = 0.030, coin)
         end
 
         return crypto_trader_statement
