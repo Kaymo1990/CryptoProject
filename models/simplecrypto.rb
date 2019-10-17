@@ -23,7 +23,7 @@ attr_accessor :daily_prices_historically, :standard_deviation_100d, :mean_100d, 
     end
 
     def analysisReport(tradeStatementPrinter = TradeStatement.new)
-
+        tradeStatementPrinter
     end
 
 
