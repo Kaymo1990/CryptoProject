@@ -23,15 +23,15 @@ class TradeStatement
         crypto_trader_statement = "The current price of #{coin} is #{dailyPrices[0]}. "
 
         if dailyPrices[0] >= mean
-            crypto_trader_statement += tradeRecommendationStatements("aboveaverage")
+            crypto_trader_statement += tradeRecommendationStatements("aboveaverage", coefficientOfVariation, mean)
         else
-            crypto_trader_statement += tradeRecommendationStatements("belowaverage")
+            crypto_trader_statement += tradeRecommendationStatements("belowaverage", coefficientOfVariation, mean)
         end
 
         if isVolatile == true
-            crypto_trader_statement += tradeRecommendationStatements("highvolatility")
+            crypto_trader_statement += tradeRecommendationStatements("highvolatility", coefficientOfVariation, mean)
         else
-            crypto_trader_statement += tradeRecommendationStatements("lowvolatility")
+            crypto_trader_statement += tradeRecommendationStatements("lowvolatility", coefficientOfVariation, mean)
         end
 
         return crypto_trader_statement
