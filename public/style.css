@@ -1,0 +1,38 @@
+.brand-title {
+    color: white;
+}
+
+.main-intro {
+    text-align: center;
+    color: white;
+}
+
+.welcome {
+    text-align: center;
+    color: grey;
+}
+
+.startanalyse{
+    text-align: center;
+}
+
+.searchbox {
+    text-align: center;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+

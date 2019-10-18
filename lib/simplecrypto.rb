@@ -15,7 +15,7 @@ attr_accessor :daily_prices_historically, :standard_deviation_100d, :mean_100d, 
     end
 
     def getCryptoPricesFor100days(coin: self.coin, currency: "usd", dateParser: DateMap.new, technicalCalc: Calculations.new)
-        mapped_dates = dateParser.dateMap(2)
+        mapped_dates = dateParser.dateMap(10)
         self.daily_prices_historically = technicalCalc.movingAverage(mapped_dates, coin)
         self.mean_100d = technicalCalc.mean(self.daily_prices_historically)
         self.standard_deviation_100d = technicalCalc.standard_deviation(daily_prices_historically)
