@@ -1,2 +1,2 @@
-require_relative './main.rb'
+require_relative './app.rb'
 run CryptoMain
