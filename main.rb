@@ -14,6 +14,7 @@ post '/cryptosearch' do
     p params
      @coin = SimpleCrypto.new(params[:coin])
      @coin.getCryptoPricesFor100days
+     @analysis = @coin.analysisReport
      erb :analysis
 end
 
