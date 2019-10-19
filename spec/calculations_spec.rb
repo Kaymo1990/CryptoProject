@@ -19,7 +19,7 @@ describe Calculations do
 
     describe '#coefficientOfVariation' do
         it 'returns a value that represents volatility' do
-            expectedOutput = 0.53
+            expectedOutput = 0.527
             inputStandardDeviation = 1.58
             inputMean = 3
             expect(subject.coefficientOfVariation(inputStandardDeviation, inputMean)).to eq expectedOutput
@@ -29,13 +29,13 @@ describe Calculations do
     describe '#isVolatile' do
         it 'returns true when above a benchmark' do
             expectedOutput = true
-            input = 0.31
+            input = 0.031
             expect(subject.isVolatile(input)).to eq expectedOutput
         end
 
         it 'returns false when below a benchmark' do
             expectedOutput = false
-            input = 0.29
+            input = 0.029
             expect(subject.isVolatile(input)).to eq expectedOutput
         end
     end
