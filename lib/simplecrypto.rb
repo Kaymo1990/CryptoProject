@@ -5,7 +5,7 @@ require_relative 'tradestatement.rb'
 class SimpleCrypto
 attr_accessor :daily_prices_historically, :standard_deviation_100d, :mean_100d, :coefficient_of_variation, :is_volatile, :coin
     def initialize(coin)
-        @coin = coin
+        @coin = coin.downcase.strip
         @daily_prices_historically = []
         @standard_deviation_100d = []
         @mean_100d
