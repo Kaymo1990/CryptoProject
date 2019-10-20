@@ -1,5 +1,5 @@
 # CryptoProject
-<img src="https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true" alt="Project Badge" width="300">
+[![Build status](https://ci.appveyor.com/api/projects/status/ucxdtomi8jsucjnf?svg=true)](https://ci.appveyor.com/project/Kaymo1990/cryptoproject)
 Full project, coming soon...
 
 This project uses live data via the Coingecko API to get pricing data and analyse it using technical analysis such as looking at 100d volatility and moving averages.
