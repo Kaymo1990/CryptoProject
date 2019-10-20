@@ -13,9 +13,12 @@ end
 post '/cryptosearch' do
     p params
      @coin = SimpleCrypto.new(params[:coin])
-     @coin.getCryptoPricesFor100days
-     @analysis = @coin.analysisReport
-     erb :analysis
+     if @coin.getCryptoPricesFor100days != NoMethodError
+        @analysis = @coin.analysisReport
+        erb :analysis
+     else
+        erb :index
+     end
 end
 
 # run! if app_file == $0
