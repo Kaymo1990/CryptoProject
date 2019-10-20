@@ -112,9 +112,6 @@ GEM
       nokogiri (~> 1.8)
     zeitwerk (2.2.0)
 
-PLATFORMS
-  x64-mingw32
-
 DEPENDENCIES
   bootstrap
   capybara
