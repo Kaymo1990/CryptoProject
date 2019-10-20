@@ -1,1 +1,9 @@
 language: ruby
+  ruby: 
+    - 2.6.5
+
+    before-script:
+      - bundle install --no-interaction
+
+  script: 
+    - spec
