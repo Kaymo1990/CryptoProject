@@ -13,6 +13,7 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'webmock/rspec'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 require 'capybara'
